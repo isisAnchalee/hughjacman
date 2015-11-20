@@ -1,0 +1,44 @@
+{
+  "name": "hughjacman",
+  "version": "1.0.0",
+  "description": "Like Pacman, but with Wolverine",
+  "main": "server/index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/isisAnchalee/hughjacman.git"
+  },
+  "keywords": [
+    "hughjacman",
+    "games",
+    "graphs",
+    "pacman"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isisAnchalee/hughjacman/issues"
+  },
+  "homepage": "https://github.com/isisAnchalee/hughjacman",
+  "engines": {
+    "node": "4.0.0"
+  },
+  "dependencies": {
+    "handlebars": "^3.0.0",
+    "koa": "^1.1.1",
+    "koa-bodyparser": "^3.0.0",
+    "koa-generic-session": "^1.10.0",
+    "koa-passport": "^1.1.4",
+    "koa-render": "^0.2.1",
+    "koa-router": "^5.2.3",
+    "passport-facebook": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^1.7.3",
+    "eslint-config-segment": "^2.1.0",
+    "eslint-plugin-react": "^3.6.3"
+  }
+}
