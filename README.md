@@ -1,12 +1,12 @@
-# hughjacman
-like pacman, but with wolverine
+# hughJacman
+Like pacman, but with Wolverine :100:
 
-- @isisAnchalee && @Dbz && wcjohnson11 :poodle:
+_Made with love by @isisAnchalee :dancer: && @Dbz :dragon: && wcjohnson11_ :poodle:
 
 ## To Do
-[] Get api keys from the above and hook up auth
+[] Get api keys from the above and hook up auth :ambulance:
 
-[] a readme
+[] a readme :book:
 
 [] everything else :8ball:
 
@@ -16,3 +16,5 @@ like pacman, but with wolverine
 ## Auth done with
 - https://github.com/jaredhanson/passport-facebook
 - https://github.com/jaredhanson/passport-twitter
+
+:shit:
