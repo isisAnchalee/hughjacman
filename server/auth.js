@@ -25,7 +25,7 @@ var FacebookStrategy = require('passport-facebook').Strategy
 passport.use(new FacebookStrategy({
   clientID: settings.facebookClientId,
   clientSecret: settings.facebookClientSecret,
-  callbackURL: settings.host + ':' settings.port + '/auth/facebook/callback'
+  callbackURL: `${settings.host}:${settings.port}/auth/facebook/callback`
 },
   function(token, tokenSecret, profile, done) {
     // retrieve user ...
