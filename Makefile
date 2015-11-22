@@ -33,3 +33,12 @@ distclean: clean
 lint: node_modules
 	@$(ESLINT) -- $(JS)
 .PHONY: lint
+
+#
+# Server
+#
+
+# Start the server.
+server: 
+	@node server/index.js
+.PHONY: server

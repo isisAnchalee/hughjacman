@@ -3,6 +3,9 @@ Like pacman, but with Wolverine :100:
 
 _Made with love by @isisAnchalee :dancer: && @Dbz :dragon: && wcjohnson11_ :poodle:
 
+## Starting the server
+Type `make server` then go to http://localhost:8000
+
 ## To Do
 [] Get api keys from the above and hook up auth :ambulance:
 
