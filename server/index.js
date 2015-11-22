@@ -1,3 +1,4 @@
+'use strict';
 let koa = require('koa');
 let settings = require ('./settings');
 let session = require('koa-generic-session');
@@ -13,7 +14,8 @@ let app = koa();
 // trust proxy
 app.proxy = true
 
-// sessions - todo - set up properly
+// sessions
+// TODO set up properly
 app.keys = ['your-session-secret'];
 app.use(session());
 

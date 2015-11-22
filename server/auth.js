@@ -1,3 +1,4 @@
+'use strict'
 let passport = require('koa-passport');
 let settings = require('./settings');
 let user = { id: 1, username: 'butts' };
