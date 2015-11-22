@@ -2,7 +2,6 @@
 # Binaries
 #
 
-BIN := ./node_modules/.bin
 ESLINT = ./node_modules/.bin/eslint
 
 #
@@ -30,7 +29,7 @@ distclean: clean
 #
 
 # Lint all files.
-lint: node_modules
+lint:
 	@$(ESLINT) -- $(JS)
 .PHONY: lint
 

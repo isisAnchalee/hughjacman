@@ -1,44 +1,46 @@
 'use strict';
-let koa = require('koa');
-let settings = require ('./settings');
+let Koa = require('koa');
 let session = require('koa-generic-session');
-let bodyParser = require('koa-bodyparser');
-let Router = require('koa-router');
+let body = require('koa-body');
 let passport = require('koa-passport');
+let Router = require('koa-router');
 let views = require('koa-render');
-require('./auth');
+let settings = require ('./settings');
 
-// the app
-let app = koa();
+// The app
+let app = new Koa();
 
-// trust proxy
+// Trust proxy
 app.proxy = true
 
-// sessions
+// Sessions
 // TODO set up properly
 app.keys = ['your-session-secret'];
 app.use(session());
 
-// body parser
-app.use(bodyParser());
+// Body parser
+app.use(body());
 
-// authentication
+// Authentication
+require('./auth');
 app.use(passport.initialize());
 app.use(passport.session());
 
-// append view renderer
+// Append view renderer
 app.use(views('./client', {
   map: { html: 'handlebars' },
   cache: false
 }));
 
-// client routes
+// Client routes
 let router = new Router();
 
+// GET /
 router.get('/', function*() {
   this.body = yield this.render('login')
 });
 
+// POST /custom
 router.post('/custom', function*(next) {
   let ctx = this
   yield passport.authenticate('local', function*(err, user) {
@@ -92,13 +94,16 @@ app.use(function*(next) {
   }
 });
 
+// new router
 let secured = new Router();
 
+// GET /app
 secured.get('/app', function*() {
   this.body = yield this.render('app')
 });
 
+// Be safe
 app.use(secured.middleware());
 
-// start server
+// Start server
 app.listen(settings.port);

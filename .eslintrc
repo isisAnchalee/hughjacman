@@ -1,5 +1,5 @@
 {
-  "extends": "segment/browser-es6",
+  "extends": "segment/node",
   "ecmaFeatures": {
     "templateStrings": true,
     "arrowFunctions": true,

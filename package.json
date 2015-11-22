@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Like Pacman, but with Wolverine",
   "main": "server/index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/isisAnchalee/hughjacman.git"
@@ -27,14 +26,13 @@
   "dependencies": {
     "handlebars": "^3.0.0",
     "koa": "^1.1.1",
-    "koa-bodyparser": "^3.0.0",
+    "koa-body": "^1.3.0",
     "koa-generic-session": "^1.10.0",
     "koa-passport": "^1.1.4",
     "koa-render": "^0.2.1",
     "koa-router": "^5.2.3",
     "passport-facebook": "^2.0.0",
-    "passport-local": "^1.0.0",
-    "passport-twitter": "^1.0.2"
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^1.7.3",
