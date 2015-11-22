@@ -3,21 +3,20 @@ Like pacman, but with Wolverine :100:
 
 _Made with love by @isisAnchalee :dancer: && @Dbz :dragon: && wcjohnson11_ :poodle:
 
-## Starting the server
-Type `make server` then go to http://localhost:8000
+## Starting in Development
+1. `make node_modules`
+2. `make server` 
+3. [Click Here](http://localhost:8000)
+4. profit???
 
 ## To Do
-[] Get api keys from the above and hook up auth :ambulance:
 
-[] a readme :book:
+- a readme :book:
+- everything else :8ball:
 
-[] everything else :8ball:
-
-## Routing
-- https://github.com/alexmingoia/koa-router
-
-## Auth done with
-- https://github.com/jaredhanson/passport-facebook
-- https://github.com/jaredhanson/passport-twitter
+- Client Side File Structure
+- Style Front End
+- Game Logic
+- multiplayer option (Other xmen characters or hugh jackman characters? :information_desk_person: )
 
 :shit:
