@@ -1,45 +1,44 @@
-'use strict';
-var koa = require('koa');
-var settings = require ('./settings');
+let koa = require('koa');
+let settings = require ('./settings');
+let session = require('koa-generic-session');
+let bodyParser = require('koa-bodyparser');
+let Router = require('koa-router');
+let passport = require('koa-passport');
+let views = require('koa-render');
+require('./auth');
 
-var app = koa();
+// the app
+let app = koa();
 
 // trust proxy
 app.proxy = true
 
-// sessions
-var session = require('koa-generic-session');
+// sessions - todo - set up properly
 app.keys = ['your-session-secret'];
 app.use(session());
 
 // body parser
-var bodyParser = require('koa-bodyparser');
 app.use(bodyParser());
 
 // authentication
-require('./auth');
-var passport = require('koa-passport');
 app.use(passport.initialize());
 app.use(passport.session());
 
 // append view renderer
-var views = require('koa-render');
 app.use(views('./client', {
   map: { html: 'handlebars' },
   cache: false
 }));
 
 // client routes
-var Router = require('koa-router');
-
-var router = new Router();
+let router = new Router();
 
 router.get('/', function*() {
   this.body = yield this.render('login')
 });
 
 router.post('/custom', function*(next) {
-  var ctx = this
+  let ctx = this
   yield passport.authenticate('local', function*(err, user) {
     if (err) throw err
     if (user === false) {
@@ -60,15 +59,18 @@ router.post('/login',
   })
 );
 
+// GET /logout
 router.get('/logout', function*(next) {
   this.logout(next)
   this.redirect('/')
 });
 
+// GET /auth/facebook
 router.get('/auth/facebook',
   passport.authenticate('facebook')
 );
 
+// GET /auth/facebook/callback
 router.get('/auth/facebook/callback',
   passport.authenticate('facebook', {
     successRedirect: '/app',
@@ -76,6 +78,7 @@ router.get('/auth/facebook/callback',
   })
 );
 
+// Attach the router built above
 app.use(router.middleware());
 
 // Require authentication for now
@@ -87,7 +90,7 @@ app.use(function*(next) {
   }
 });
 
-var secured = new Router();
+let secured = new Router();
 
 secured.get('/app', function*() {
   this.body = yield this.render('app')

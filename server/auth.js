@@ -1,19 +1,19 @@
-'use strict';
-var passport = require('koa-passport');
-var settings = require('./settings');
-var user = { id: 1, username: 'test' };
+let passport = require('koa-passport');
+let settings = require('./settings');
+let user = { id: 1, username: 'butts' };
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser((user, done)=> {
   done(null, user.id);
 });
 
-passport.deserializeUser(function(id, done) {
+passport.deserializeUser((id, done)=> {
   done(null, user);
 });
 
-var LocalStrategy = require('passport-local').Strategy;
-passport.use(new LocalStrategy(function(username, password, done) {
-  // retrieve user ...
+// Butts Auth
+let LocalStrategy = require('passport-local').Strategy;
+
+passport.use(new LocalStrategy((username, password, done)=> {
   if (username === 'butts' && password === 'butts') {
     done(null, user)
   } else {
@@ -21,14 +21,15 @@ passport.use(new LocalStrategy(function(username, password, done) {
   }
 }));
 
-var FacebookStrategy = require('passport-facebook').Strategy
+// Facebook Auth
+let FacebookStrategy = require('passport-facebook').Strategy;
+
 passport.use(new FacebookStrategy({
   clientID: settings.facebookClientId,
   clientSecret: settings.facebookClientSecret,
   callbackURL: `${settings.host}:${settings.port}/auth/facebook/callback`
 },
-  function(token, tokenSecret, profile, done) {
-    // retrieve user ...
+  (token, tokenSecret, profile, done)=> {
     done(null, user);
   }
 ));
