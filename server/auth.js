@@ -14,7 +14,7 @@ passport.deserializeUser(function(id, done) {
 var LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(function(username, password, done) {
   // retrieve user ...
-  if (username === 'test' && password === 'test') {
+  if (username === 'butts' && password === 'butts') {
     done(null, user)
   } else {
     done(null, false)
@@ -25,19 +25,7 @@ var FacebookStrategy = require('passport-facebook').Strategy
 passport.use(new FacebookStrategy({
   clientID: settings.facebookClientId,
   clientSecret: settings.facebookClientSecret,
-  callbackURL: settings.host + settings.port + '/auth/facebook/callback'
-},
-  function(token, tokenSecret, profile, done) {
-    // retrieve user ...
-    done(null, user);
-  }
-));
-
-var TwitterStrategy = require('passport-twitter').Strategy
-passport.use(new TwitterStrategy({
-  consumerKey: settings.twitterConsumerKey,
-  consumerSecret: settings.twitterConsumerSecret,
-  callbackURL: settings.host + settings.port + '/auth/twitter/callback'
+  callbackURL: settings.host + ':' settings.port + '/auth/facebook/callback'
 },
   function(token, tokenSecret, profile, done) {
     // retrieve user ...

@@ -8,8 +8,6 @@ module.exports = {
   writeKey: 'CYGDldPjEPdvdhXqZGtwvcnIDpyoEBZO',
   host: 'http://localhost',
   port: 8000,
-  twitterConsumerKey: '',
-  twitterConsumerSecret: '',
-  facebookClientId: '',
-  facebookClientSecret: ''
+  facebookClientId: '168698980148932',
+  facebookClientSecret: '3c245c2ef791dc83980beec160aea639'
 };

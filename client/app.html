@@ -6,6 +6,39 @@
   <title>koa-passport example</title>
 </head>
 <body>
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '168698980148932',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <div
+    class="fb-like"
+    data-share="true"
+    data-width="450"
+    data-show-faces="true">
+  </div>
+
+  <script>
+  FB.ui({
+    method: 'feed',
+    link: 'https://hughjacman',
+    caption: 'Check out hugh Jacman!',
+  }, function(response){});
+  </script>
+
   <h1>App</h1>
   <p>You are authenticated ... <a href="/logout">logout</a></p>
 </body>
