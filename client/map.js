@@ -1,4 +1,10 @@
 'use strict';
+
+// mapArray values:
+const FOOD = 0;
+const WALL = 1;
+// Any other number means teleport to that number in a different location
+
 class Map {
     constructor(mapArray) {
         // Example mapArray
@@ -22,8 +28,6 @@ class Map {
 
         this.nodes = Array(numCols).fill().map(() => Array(numRows)); // Create 2D array of nodes
 
-
-
         for(var row = 0; row < numRows; ++row) {
             var currentRow = mapArray[row].split("");
             for(var col = 0; col < numCols; ++col) {
@@ -43,13 +47,26 @@ class Node {
         this.col = col;
         this.nodeType = nodeType;
         this.up = this.down = this.left = this.right = null;
-        if(row > 0) { // Establish both connections to the node above
-            this.up = this.map.position(row - 1, col);
-            this.up.down = this;
+        this.establishConnections();
+    }
+
+    establishConnections() {
+        if(this.nodeType == WALL) // Don't connect if I'm a wall
+            return;
+
+        if(this.row > 0) { // Establish both connections to the node above
+            var upNode = this.map.position(this.row - 1, this.col);
+            if(upNode.nodeType != WALL) {
+                this.up = upNode;
+                upNode.down = this;
+            }
         }
-        if(col > 0) { // Establish both connections to the node to the left
-            this.left = this.map.position(row, col - 1);
-            this.left.right = this;
+        if(this.col > 0) { // Establish both connections to the node to the left
+            var leftNode = this.map.position(this.row, this.col - 1);
+            if(leftNode.nodeType != WALL) {
+                this.left = leftNode;
+                leftNode.right = this;
+            }
         }
     }
 }
